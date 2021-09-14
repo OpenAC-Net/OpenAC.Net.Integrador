@@ -1,5 +1,5 @@
 ﻿// ***********************************************************************
-// Assembly         : ACBr.Net.Integrador
+// Assembly         : OpenAC.Net.Integrador
 // Author           : RFTD
 // Created          : 02-19-2018
 //

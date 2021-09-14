@@ -1,5 +1,5 @@
 ﻿// ***********************************************************************
-// Assembly         : ACBr.Net.Integrador
+// Assembly         : OpenAC.Net.Integrador
 // Author           : RFTD
 // Created          : 02-19-2018
 //
@@ -7,8 +7,8 @@
 // Last Modified On : 02-19-2018
 // ***********************************************************************
 // <copyright file="OpenIntegrador.cs" company="OpenAC .Net">
-//		        		   The MIT License (MIT)
-//	     		    Copyright (c) 2014 - 2021 Projeto OpenAC .Net
+//		      		   The MIT License (MIT)
+//	      Copyright (c) 2014 - 2021 Projeto OpenAC .Net
 //
 //	 Permission is hereby granted, free of charge, to any person obtaining
 // a copy of this software and associated documentation files (the "Software"),
@@ -31,16 +31,11 @@
 
 using System;
 using System.ComponentModel;
-using System.Drawing;
 using System.IO;
 using System.Threading;
 using OpenAC.Net.Core;
 using OpenAC.Net.Core.Extensions;
 using OpenAC.Net.Core.Logging;
-
-#if !NETSTANDARD2_0
-
-#endif
 
 namespace OpenAC.Net.Integrador
 {
@@ -48,13 +43,8 @@ namespace OpenAC.Net.Integrador
     /// <summary>
     /// Classe OpenIntegrador, responsavel por comunicar com o integrador fiscal do Ceará.
     /// </summary>
-    /// <seealso cref="T:ACBr.Net.Core.ACBrComponent" />
-    /// <seealso cref="T:ACBr.Net.Core.Logging.IACBrLog" />
-#if !NETSTANDARD2_0
-
-    [ToolboxBitmap(typeof(OpenIntegrador), "OpenAC.Net.Integrador.OpenIntegrador")]
-#endif
-
+    /// <seealso cref="T:OpenAC.Net.Core.OpenComponent" />
+    /// <seealso cref="T:OpenAC.Net.Core.Logging.IOpenLog" />
     public sealed class OpenIntegrador : OpenComponent, IOpenLog
     {
         #region Fields

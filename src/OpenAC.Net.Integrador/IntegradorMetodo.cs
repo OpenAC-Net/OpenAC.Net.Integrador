@@ -1,5 +1,5 @@
 // ***********************************************************************
-// Assembly         : ACBr.Net.Sat
+// Assembly         : OpenAC.Net.Integrador
 // Author           : marcosgerene
 // Created          : 07-17-2017
 //

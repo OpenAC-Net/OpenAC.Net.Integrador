@@ -27,6 +27,8 @@
     <IncludeSymbols>true</IncludeSymbols>
     <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <PackageId>OpenAC.Net.Integrador</PackageId>
+    <Product>OpenAC.Net.Integrador</Product>
   </PropertyGroup>
 
   <PropertyGroup Condition=" '$(TargetFramework)' == 'netstandard2.0'">
