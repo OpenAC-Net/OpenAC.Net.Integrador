@@ -45,7 +45,7 @@ namespace OpenAC.Net.Integrador
     /// </summary>
     /// <seealso cref="T:OpenAC.Net.Core.OpenComponent" />
     /// <seealso cref="T:OpenAC.Net.Core.Logging.IOpenLog" />
-    public sealed class OpenIntegrador : OpenComponent, IOpenLog
+    public sealed class OpenIntegrador : IOpenLog
     {
         #region Fields
 
@@ -61,6 +61,18 @@ namespace OpenAC.Net.Integrador
         public event EventHandler<NumeroSessaoEventArgs> OnGetNumeroSessao;
 
         #endregion Events
+
+        #region Constructors
+
+        public OpenIntegrador()
+        {
+            Configuracoes = new IntegradorConfig();
+            Parametros = new IntegradorParametroCollection();
+            NomeComponente = "";
+            NomeMetodo = "";
+        }
+
+        #endregion Constructors
 
         #region Properties
 
@@ -402,24 +414,6 @@ namespace OpenAC.Net.Integrador
         }
 
         #endregion Private
-
-        #region Override
-
-        /// <inheritdoc />
-        protected override void OnInitialize()
-        {
-            Configuracoes = new IntegradorConfig();
-            Parametros = new IntegradorParametroCollection();
-            NomeComponente = "";
-            NomeMetodo = "";
-        }
-
-        /// <inheritdoc />
-        protected override void OnDisposing()
-        {
-        }
-
-        #endregion Override
 
         #endregion Methods
     }

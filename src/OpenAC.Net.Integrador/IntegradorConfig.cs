@@ -29,12 +29,8 @@
 // <summary></summary>
 // ***********************************************************************
 
-using System.ComponentModel;
-using OpenAC.Net.Core;
-
 namespace OpenAC.Net.Integrador
 {
-    [TypeConverter(typeof(OpenExpandableObjectConverter))]
     public sealed class IntegradorConfig
     {
         #region Constructor
