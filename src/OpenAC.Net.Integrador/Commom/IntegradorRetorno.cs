@@ -6,7 +6,7 @@
 // Last Modified By : RFTD
 // Last Modified On : 05-30-2017
 // ***********************************************************************
-// <copyright file="IntegradorParametro.cs" company="OpenAC .Net">
+// <copyright file="IntegradorRetorno.cs" company="OpenAC .Net">
 //		        		   The MIT License (MIT)
 //	     		    Copyright (c) 2014 - 2021 Projeto OpenAC .Net
 //
@@ -29,21 +29,36 @@
 // <summary></summary>
 // ***********************************************************************
 
-using OpenAC.Net.Core.Generics;
 using OpenAC.Net.DFe.Core.Attributes;
-using OpenAC.Net.DFe.Core.Serializer;
+using OpenAC.Net.DFe.Core.Document;
 
-namespace OpenAC.Net.Integrador
+namespace OpenAC.Net.Integrador.Commom
 {
-    public sealed class IntegradorParametro : GenericClone<IntegradorParametro>
+    [DFeRoot("Integrador")]
+    public sealed class IntegradorRetorno : DFeDocument<IntegradorRetorno>
+
     {
+        #region Constructors
+
+        public IntegradorRetorno()
+        {
+            Identificador = new IntegradorIdentificador();
+            IntegradorResposta = new IntegradorResposta();
+            Resposta = new IntegradorResp();
+        }
+
+        #endregion Constructors
+
         #region Properties
 
-        [DFeElement(TipoCampo.Str, "Nome", Ocorrencia = Ocorrencia.Obrigatoria)]
-        public string Nome { get; set; }
+        [DFeElement("Identificador", Ocorrencia = Ocorrencia.Obrigatoria)]
+        public IntegradorIdentificador Identificador { get; set; }
 
-        [DFeElement(TipoCampo.Str, "Valor", Ocorrencia = Ocorrencia.Obrigatoria)]
-        public string Valor { get; set; }
+        [DFeElement("IntegradorResposta", Ocorrencia = Ocorrencia.Obrigatoria)]
+        public IntegradorResposta IntegradorResposta { get; set; }
+
+        [DFeElement("Resposta", Ocorrencia = Ocorrencia.Obrigatoria)]
+        public IntegradorResp Resposta { get; set; }
 
         #endregion Properties
     }

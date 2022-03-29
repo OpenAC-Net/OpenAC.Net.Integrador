@@ -36,6 +36,8 @@ using System.Threading;
 using OpenAC.Net.Core;
 using OpenAC.Net.Core.Extensions;
 using OpenAC.Net.Core.Logging;
+using OpenAC.Net.Integrador.Commom;
+using OpenAC.Net.Integrador.Config;
 
 namespace OpenAC.Net.Integrador
 {
@@ -45,7 +47,7 @@ namespace OpenAC.Net.Integrador
     /// </summary>
     /// <seealso cref="T:OpenAC.Net.Core.OpenComponent" />
     /// <seealso cref="T:OpenAC.Net.Core.Logging.IOpenLog" />
-    public sealed class OpenIntegrador : IOpenLog
+    public sealed class OpenIntegrador : OpenDisposable, IOpenLog
     {
         #region Fields
 

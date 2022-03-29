@@ -33,7 +33,7 @@ using OpenAC.Net.Core.Generics;
 using OpenAC.Net.DFe.Core.Attributes;
 using OpenAC.Net.DFe.Core.Serializer;
 
-namespace OpenAC.Net.Integrador
+namespace OpenAC.Net.Integrador.Commom
 {
     [DFeRoot("Resposta")]
     public sealed class IntegradorResp : GenericClone<IntegradorResp>

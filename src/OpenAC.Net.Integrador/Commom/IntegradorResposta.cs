@@ -1,12 +1,12 @@
-﻿// ***********************************************************************
+// ***********************************************************************
 // Assembly         : OpenAC.Net.Integrador
 // Author           : RFTD
-// Created          : 02-19-2018
+// Created          : 05-30-2017
 //
 // Last Modified By : RFTD
-// Last Modified On : 02-19-2018
+// Last Modified On : 05-30-2017
 // ***********************************************************************
-// <copyright file="OpenIntegrador.cs" company="OpenAC .Net">
+// <copyright file="IntegradorResposta.cs" company="OpenAC .Net">
 //		        		   The MIT License (MIT)
 //	     		    Copyright (c) 2014 - 2021 Projeto OpenAC .Net
 //
@@ -29,35 +29,22 @@
 // <summary></summary>
 // ***********************************************************************
 
-namespace OpenAC.Net.Integrador
+using OpenAC.Net.Core.Generics;
+using OpenAC.Net.DFe.Core.Attributes;
+using OpenAC.Net.DFe.Core.Serializer;
+
+namespace OpenAC.Net.Integrador.Commom
 {
-    public sealed class IntegradorConfig
+    public sealed class IntegradorResposta : GenericClone<IntegradorResposta>
     {
-        #region Constructor
+        #region Properties
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="IntegradorConfig"/> class.
-        /// </summary>
-        internal IntegradorConfig()
-        {
-            PastaInput = "C:\\Integrador\\Input\\";
-            PastaOutput = "C:\\Integrador\\Output\\";
-            TimeOut = 45000;
-            ChaveAcessoValidador = "";
-        }
+        [DFeElement(TipoCampo.Str, "Codigo", Ocorrencia = Ocorrencia.Obrigatoria)]
+        public string Codigo { get; set; }
 
-        #endregion Constructor
+        [DFeElement(TipoCampo.Str, "Valor", Ocorrencia = Ocorrencia.Obrigatoria)]
+        public string Valor { get; set; }
 
-        #region Propriedades
-
-        public string PastaInput { get; set; }
-
-        public string PastaOutput { get; set; }
-
-        public int TimeOut { get; set; }
-
-        public string ChaveAcessoValidador { get; set; }
-
-        #endregion Propriedades
+        #endregion Properties
     }
 }

@@ -1,12 +1,12 @@
 // ***********************************************************************
 // Assembly         : OpenAC.Net.Integrador
-// Author           : marcosgerene
-// Created          : 07-17-2017
+// Author           : RFTD
+// Created          : 05-30-2017
 //
-// Last Modified By : marcosgerene
-// Last Modified On : 07-17-2017
+// Last Modified By : RFTD
+// Last Modified On : 05-30-2017
 // ***********************************************************************
-// <copyright file="IntegradorMetodo.cs" company="OpenAC .Net">
+// <copyright file="IntegradorParametro.cs" company="OpenAC .Net">
 //		        		   The MIT License (MIT)
 //	     		    Copyright (c) 2014 - 2021 Projeto OpenAC .Net
 //
@@ -33,31 +33,17 @@ using OpenAC.Net.Core.Generics;
 using OpenAC.Net.DFe.Core.Attributes;
 using OpenAC.Net.DFe.Core.Serializer;
 
-namespace OpenAC.Net.Integrador
+namespace OpenAC.Net.Integrador.Commom
 {
-    public sealed class IntegradorMetodo : GenericClone<IntegradorMetodo>
+    public sealed class IntegradorParametro : GenericClone<IntegradorParametro>
     {
-        #region Constructors
-
-        public IntegradorMetodo()
-        {
-            Construtor = null;
-            Parametros = new IntegradorParametroCollection();
-        }
-
-        #endregion Constructors
-
         #region Properties
 
-        [DFeAttribute(TipoCampo.Str, "Nome", Ocorrencia = Ocorrencia.Obrigatoria)]
+        [DFeElement(TipoCampo.Str, "Nome", Ocorrencia = Ocorrencia.Obrigatoria)]
         public string Nome { get; set; }
 
-        [DFeElement("Construtor", Ocorrencia = Ocorrencia.NaoObrigatoria)]
-        public IntegradorConstrutor Construtor { get; set; }
-
-        [DFeCollection("Parametros")]
-        [DFeItem(typeof(IntegradorParametro), "Parametro")]
-        public IntegradorParametroCollection Parametros { get; set; }
+        [DFeElement(TipoCampo.Str, "Valor", Ocorrencia = Ocorrencia.Obrigatoria)]
+        public string Valor { get; set; }
 
         #endregion Properties
     }

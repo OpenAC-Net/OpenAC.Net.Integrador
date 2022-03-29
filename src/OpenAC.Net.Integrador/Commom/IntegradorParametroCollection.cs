@@ -4,9 +4,9 @@
 // Created          : 05-30-2017
 //
 // Last Modified By : RFTD
-// Last Modified On : 05-30-2017
+// Last Modified On : 02-19-2018
 // ***********************************************************************
-// <copyright file="IntegradorRetorno.cs" company="OpenAC .Net">
+// <copyright file="IntegradorParametroCollection.cs" company="OpenAC .Net">
 //		        		   The MIT License (MIT)
 //	     		    Copyright (c) 2014 - 2021 Projeto OpenAC .Net
 //
@@ -29,37 +29,38 @@
 // <summary></summary>
 // ***********************************************************************
 
-using OpenAC.Net.DFe.Core.Attributes;
-using OpenAC.Net.DFe.Core.Document;
+using OpenAC.Net.DFe.Core.Collection;
 
-namespace OpenAC.Net.Integrador
+namespace OpenAC.Net.Integrador.Commom
 {
-    [DFeRoot("Integrador")]
-    public sealed class IntegradorRetorno : DFeDocument<IntegradorRetorno>
-
+    public sealed class IntegradorParametroCollection : DFeCollection<IntegradorParametro>
     {
-        #region Constructors
-
-        public IntegradorRetorno()
+        /// <summary>
+        /// Insere um paramentro na lista na posição informada.
+        /// </summary>
+        /// <param name="idx"></param>
+        /// <param name="nome"></param>
+        /// <param name="valor"></param>
+        public void InsertParametro(int idx, string nome, string valor)
         {
-            Identificador = new IntegradorIdentificador();
-            IntegradorResposta = new IntegradorResposta();
-            Resposta = new IntegradorResp();
+            var parametro = new IntegradorParametro
+            {
+                Nome = nome,
+                Valor = valor
+            };
+            Insert(idx, parametro);
         }
 
-        #endregion Constructors
-
-        #region Properties
-
-        [DFeElement("Identificador", Ocorrencia = Ocorrencia.Obrigatoria)]
-        public IntegradorIdentificador Identificador { get; set; }
-
-        [DFeElement("IntegradorResposta", Ocorrencia = Ocorrencia.Obrigatoria)]
-        public IntegradorResposta IntegradorResposta { get; set; }
-
-        [DFeElement("Resposta", Ocorrencia = Ocorrencia.Obrigatoria)]
-        public IntegradorResp Resposta { get; set; }
-
-        #endregion Properties
+        /// <summary>
+        /// Adiciona um parametro na lista.
+        /// </summary>
+        /// <param name="nome"></param>
+        /// <param name="valor"></param>
+        public void AddParametro(string nome, string valor)
+        {
+            var parametro = AddNew();
+            parametro.Nome = nome;
+            parametro.Valor = valor;
+        }
     }
 }

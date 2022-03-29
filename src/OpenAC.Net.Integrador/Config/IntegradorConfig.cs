@@ -1,12 +1,12 @@
-// ***********************************************************************
+ï»¿// ***********************************************************************
 // Assembly         : OpenAC.Net.Integrador
 // Author           : RFTD
-// Created          : 05-30-2017
+// Created          : 02-19-2018
 //
 // Last Modified By : RFTD
 // Last Modified On : 02-19-2018
 // ***********************************************************************
-// <copyright file="IntegradorParametroCollection.cs" company="OpenAC .Net">
+// <copyright file="OpenIntegrador.cs" company="OpenAC .Net">
 //		        		   The MIT License (MIT)
 //	     		    Copyright (c) 2014 - 2021 Projeto OpenAC .Net
 //
@@ -29,38 +29,35 @@
 // <summary></summary>
 // ***********************************************************************
 
-using OpenAC.Net.DFe.Core.Collection;
-
-namespace OpenAC.Net.Integrador
+namespace OpenAC.Net.Integrador.Config
 {
-    public sealed class IntegradorParametroCollection : DFeCollection<IntegradorParametro>
+    public sealed class IntegradorConfig
     {
-        /// <summary>
-        /// Insere um paramentro na lista na posição informada.
-        /// </summary>
-        /// <param name="idx"></param>
-        /// <param name="nome"></param>
-        /// <param name="valor"></param>
-        public void InsertParametro(int idx, string nome, string valor)
-        {
-            var parametro = new IntegradorParametro
-            {
-                Nome = nome,
-                Valor = valor
-            };
-            Insert(idx, parametro);
-        }
+        #region Constructor
 
         /// <summary>
-        /// Adiciona um parametro na lista.
+        /// Initializes a new instance of the <see cref="IntegradorConfig"/> class.
         /// </summary>
-        /// <param name="nome"></param>
-        /// <param name="valor"></param>
-        public void AddParametro(string nome, string valor)
+        internal IntegradorConfig()
         {
-            var parametro = AddNew();
-            parametro.Nome = nome;
-            parametro.Valor = valor;
+            PastaInput = "C:\\Integrador\\Input\\";
+            PastaOutput = "C:\\Integrador\\Output\\";
+            TimeOut = 45000;
+            ChaveAcessoValidador = "";
         }
+
+        #endregion Constructor
+
+        #region Propriedades
+
+        public string PastaInput { get; set; }
+
+        public string PastaOutput { get; set; }
+
+        public int TimeOut { get; set; }
+
+        public string ChaveAcessoValidador { get; set; }
+
+        #endregion Propriedades
     }
 }

@@ -1,12 +1,12 @@
 // ***********************************************************************
 // Assembly         : OpenAC.Net.Integrador
-// Author           : RFTD
-// Created          : 05-30-2017
+// Author           : marcosgerene
+// Created          : 07-17-2017
 //
-// Last Modified By : RFTD
-// Last Modified On : 05-30-2017
+// Last Modified By : marcosgerene
+// Last Modified On : 07-17-2017
 // ***********************************************************************
-// <copyright file="IntegradorEnvio.cs" company="OpenAC .Net">
+// <copyright file="IntegradorMetodo.cs" company="OpenAC .Net">
 //		        		   The MIT License (MIT)
 //	     		    Copyright (c) 2014 - 2021 Projeto OpenAC .Net
 //
@@ -29,31 +29,35 @@
 // <summary></summary>
 // ***********************************************************************
 
+using OpenAC.Net.Core.Generics;
 using OpenAC.Net.DFe.Core.Attributes;
-using OpenAC.Net.DFe.Core.Document;
+using OpenAC.Net.DFe.Core.Serializer;
 
-namespace OpenAC.Net.Integrador
+namespace OpenAC.Net.Integrador.Commom
 {
-    [DFeRoot("Integrador")]
-    public sealed class IntegradorEnvio : DFeDocument<IntegradorEnvio>
+    public sealed class IntegradorMetodo : GenericClone<IntegradorMetodo>
     {
         #region Constructors
 
-        public IntegradorEnvio()
+        public IntegradorMetodo()
         {
-            Identificador = new IntegradorIdentificador();
-            Componente = new IntegradorComponente();
+            Construtor = null;
+            Parametros = new IntegradorParametroCollection();
         }
 
         #endregion Constructors
 
         #region Properties
 
-        [DFeElement("Identificador", Ocorrencia = Ocorrencia.Obrigatoria)]
-        public IntegradorIdentificador Identificador { get; set; }
+        [DFeAttribute(TipoCampo.Str, "Nome", Ocorrencia = Ocorrencia.Obrigatoria)]
+        public string Nome { get; set; }
 
-        [DFeElement("Componente", Ocorrencia = Ocorrencia.Obrigatoria)]
-        public IntegradorComponente Componente { get; set; }
+        [DFeElement("Construtor", Ocorrencia = Ocorrencia.NaoObrigatoria)]
+        public IntegradorConstrutor Construtor { get; set; }
+
+        [DFeCollection("Parametros")]
+        [DFeItem(typeof(IntegradorParametro), "Parametro")]
+        public IntegradorParametroCollection Parametros { get; set; }
 
         #endregion Properties
     }

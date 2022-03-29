@@ -6,7 +6,7 @@
 // Last Modified By : RFTD
 // Last Modified On : 05-30-2017
 // ***********************************************************************
-// <copyright file="IntegradorComponente.cs" company="OpenAC .Net">
+// <copyright file="IntegradorIdentificador.cs" company="OpenAC .Net">
 //		        		   The MIT License (MIT)
 //	     		    Copyright (c) 2014 - 2021 Projeto OpenAC .Net
 //
@@ -33,27 +33,11 @@ using OpenAC.Net.Core.Generics;
 using OpenAC.Net.DFe.Core.Attributes;
 using OpenAC.Net.DFe.Core.Serializer;
 
-namespace OpenAC.Net.Integrador
+namespace OpenAC.Net.Integrador.Commom
 {
-    public sealed class IntegradorComponente : GenericClone<IntegradorComponente>
+    public sealed class IntegradorIdentificador : GenericClone<IntegradorIdentificador>
     {
-        #region Constructors
-
-        public IntegradorComponente()
-        {
-            Metodo = new IntegradorMetodo();
-        }
-
-        #endregion Constructors
-
-        #region Properties
-
-        [DFeAttribute(TipoCampo.Str, "Nome", Ocorrencia = Ocorrencia.Obrigatoria)]
-        public string Nome { get; set; }
-
-        [DFeElement("Metodo", Ocorrencia = Ocorrencia.Obrigatoria)]
-        public IntegradorMetodo Metodo { get; set; }
-
-        #endregion Properties
+        [DFeElement(TipoCampo.Str, "Valor", Ocorrencia = Ocorrencia.Obrigatoria)]
+        public string Valor { get; set; }
     }
 }
